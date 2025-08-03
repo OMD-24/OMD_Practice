@@ -1,6 +1,23 @@
 
 import java.lang.annotation.Target;
 
+/*
+ * 
+ * Compute mid, map it to 2D: row = mid / n, col = mid % n.
+
+Compare matrix[row][col] to target:
+
+If equal, return true.
+
+If greater, shrink right half (end = mid - 1).
+
+If smaller, shrink left half (start = mid + 1).
+
+Loop until search space is exhausted; if not found, return false.
+
+Time: O(log(m*n))
+Space: O(1)
+ */
 public class q_74 {
     /**
      * @param matrix
@@ -12,40 +29,27 @@ public class q_74 {
         int m = matrix.length;
         int n = matrix[0].length;
 
-        int top = 0;
-        int bottom = m-1;
+    
+        int start = 0;
+        int end = (m*n) - 1;
 
-        while(top<=bottom){
-            int vmid = top + (bottom - top)/2;
-            if(top == bottom - 1){
-                
-                int i = 0;
-                int j = n-1;
-                while(i<=j){
-                    int mid = (i+j)/2;
-                    if(matrix[top][mid] == target){
-                        return true;
-                    }
+        while(start<=end){
 
-                    else if(matrix[top][mid] < target){
-                        j = mid -1;
-                    }
+            int mid = (start + end)/2;
+            int i = mid / n;
+            int j = mid % n;
 
-                    else i = mid + 1;
-                }
-
-                return false;
-            }
-
-            if(matrix[vmid][0]== target){
+            if(matrix[i][j] == target){
                 return true;
             }
 
-
-            if(matrix[vmid][0] < target){
-                top = vmid;
+            else if(matrix[i][j]>target){
+                end = mid - 1;
             }
-            else bottom = vmid;
+
+            else start = mid + 1;
+            
+
         }
 
 
