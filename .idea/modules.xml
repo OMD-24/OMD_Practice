@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CodeChef/CodeChef.iml" filepath="$PROJECT_DIR$/CodeChef/CodeChef.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeChef Contest/CodeChef Contest.iml" filepath="$PROJECT_DIR$/CodeChef Contest/CodeChef Contest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeForces/CodeForces.iml" filepath="$PROJECT_DIR$/CodeForces/CodeForces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeChef/ContestPractice/ContestPractice.iml" filepath="$PROJECT_DIR$/CodeChef/ContestPractice/ContestPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OMD_Practice.iml" filepath="$PROJECT_DIR$/OMD_Practice.iml" />
+    </modules>
+  </component>
+</project>
