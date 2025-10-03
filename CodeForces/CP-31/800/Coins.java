@@ -16,7 +16,6 @@ public class Coins {
 
                 System.out.println("No");
 
-
             }
 
             else System.out.println("Yes");
