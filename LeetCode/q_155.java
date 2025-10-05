@@ -16,13 +16,15 @@ public class q_155 {
 
         public void push(int val) {
             s1.push(val);
-            if(!s1.empty()){
-
+            if (s2.isEmpty() || val <= s2.peek()) {
+                s2.push(val);
             }
-
         }
 
         public void pop() {
+            if (s1.peek().equals(s2.peek())) {
+                s2.pop();
+            }
             s1.pop();
         }
 
@@ -31,17 +33,20 @@ public class q_155 {
         }
 
         public int getMin() {
-            return min;
+            return s2.peek();
         }
 
-        public void add(){
-            if(s1.empty()){
-                return;
-            }
-            int top1 = s1.pop();
-            int top2 = s1.pop();
-            add();
-            s2.
-        }
+
+//        public void add(int n){
+//            if(s2.empty() || s2.peek()>=n){
+//                s2.push(n);
+//                return;
+//            }
+//
+//            int top = s2.pop();
+//            add(n);
+//            s2.push(top);
+//        }
+
     }
 }
