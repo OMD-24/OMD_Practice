@@ -17,7 +17,7 @@ public class ATMMachine{
             }
 
             String str = "";
-z
+
             for(int i=0; i<n; i++){
                 if(A[i]<=k){
                     k=k-A[i];

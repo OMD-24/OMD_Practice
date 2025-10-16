@@ -11,39 +11,47 @@ public class UnitedWeStand {
             int n = sc.nextInt();
             int A[] = new int[n];
 
+            for(int i=0; i<n; i++){
+                A[i] = sc.nextInt();
+            }
+
             ArrayList b = new ArrayList<>();
             ArrayList c = new ArrayList<>();
 
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < A.length; j++) {
-                    if(A[j] != A[i] && A[j] % A[i] == 0){
-                        b.add(A[i]);
-                    }
-                    else c.add(A[i]);
-                    
+            boolean duplicate = true;
+            int max = A[0];
+            for (int i = 0; i < n-1; i++) {
+                if(A[i] != A[i+1]) duplicate = false;
+                max = Math.max(max, A[i+1]);
+            }
+            for(int i=0; i<n; i++){
+                if(A[i] == max){
+                    c.add(A[i]);
                 }
-                
+
+                else b.add(A[i]);
             }
 
-            if(b.size() == 0 || c.size() == 0){
+            if(duplicate){
                 System.out.println(-1);
             }
 
-            else 
-            {
+            else {
+                System.out.println(b.size() + " " + c.size());
+                for(int i=0; i<b.size()-1;i++){
+                    System.out.print(b.get(i) + " ");
+                }
+                System.out.print(b.get(b.size()-1));
+                System.out.println();
 
-            System.out.println(b.size() + " " + c.size());
-            for (int i = 0; i < b.size(); i++) {
-                System.out.print(b.get(i)+" ");
+                for(int i=0; i<c.size()-1;i++){
+                    System.out.print(c.get(i) + " ");
+                }
+                System.out.print(c.get(c.size()-1));
+                System.out.println();
             }
 
-            System.out.println();
 
-            for (int i = 0; i < c.size(); i++) {
-                System.out.print(c.get(i)+" ");
-            }
-
-        }
         }
     }
 }

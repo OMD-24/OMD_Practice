@@ -1,65 +1,41 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class DremyPaint {
 
+    public static boolean check(int[] A) {
+        Map<Integer, Integer> freq = new HashMap<>();
 
-    public static boolean check(int [] A){
-        int a = A[0];
-        int b = A[0];
-        int bc = 1;
 
-        int i = 1;
-        while(i<A.length){
-            if(A[i] != a){
-                b = A[i];
-                break;
-            } 
-            i++;       
-            
+        for (int x : A) {
+            freq.put(x, freq.getOrDefault(x, 0) + 1);
         }
 
 
-        while(i<A.length){
-            if(A[i] != a || A[i] != b){
-                return false;
-            }
-            if(A[i] == b){
-                bc++;
-            }
-            i++;
-        }
+        if (freq.size() == 1) return true;
 
-        if(bc == 0 || A.length/2 == bc)
-        return true;
-        else return false;
+
+        if (freq.size() > 2) return false;
+
+
+        Iterator<Integer> it = freq.values().iterator();
+        int count1 = it.next();
+        int count2 = it.next();
+
+        return Math.abs(count1 - count2) <= 1;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
-        for(int t=0; t<T; t++){
+
+        while (T-- > 0) {
             int n = sc.nextInt();
-            int A[] = new int[n];
+            int[] A = new int[n];
             for (int i = 0; i < n; i++) {
-                A[i]= sc.nextInt();
+                A[i] = sc.nextInt();
             }
 
-            if(check(A)){
-
-                System.out.println("Yes");
-            }
-
-            // else if(n == 2){
-            //     System.out.println("Yes");
-            // }
-
-            // else if ((n == 3) && ((A[0] == A[1]) || (A[0] == A[2] || (A[2] == A[1])) )) {
-            //     System.out.println("Yes");
-            // }
-            else System.out.println("No");
-
-           
+            System.out.println(check(A) ? "Yes" : "No");
         }
-
     }
 }
