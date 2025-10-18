@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class Coins {
 
-    public static boolean check(int n, int k) {
-        if (n < (2 * k)) {
-            if ((n % 2 != 0 && k % 2 == 0) || (n % 2 == 0 && k % 2 != 0))
-                return false;
+    public static boolean check(long n, long k) {
+        if(k%2!=0) return true;
+        else{
+            if(n%2==0) return true;
         }
-        return true;
+        return false;
     }
 
 
@@ -16,8 +16,8 @@ public class Coins {
 
         int T = sc.nextInt();
         for (int t = 0; t < T; t++) {
-            int n = sc.nextInt();
-            int k = sc.nextInt();
+            long n = sc.nextLong();
+            long k = sc.nextLong();
 
             if(check(n,k)){
                 System.out.println("Yes");
