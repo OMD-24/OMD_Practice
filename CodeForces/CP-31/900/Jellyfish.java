@@ -5,21 +5,17 @@ public class Jellyfish {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
         for(int t=0; t<T; t++){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
+            long a = sc.nextLong();
+            long b = sc.nextLong();
             int n = sc.nextInt();
-            int A[] = new int [n];
 
-            for(int i=0; i<n; i++){
-                A[i] = sc.nextInt();
+            long sec = 0;
+            for(int i = 0; i < n; i++) {
+                long x = sc.nextLong();
+                sec += Math.min(x, a - 1);
             }
 
-            int sec = 0;
-            for(int i=0; i<n; i++){
-                sec += Math.min(A[i], a - 1);
-            }
-
-            System.out.println(b + sec );
+            System.out.println(b + sec);
 
         }
     }
